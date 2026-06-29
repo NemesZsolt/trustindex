@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="{{ path('app_home') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="https://cdn.trustindex.io/assets/platform/Trustindex/logo-dark.svg" class="trustindex-logo img-fluid h-auto w-75" alt="Trust index logo">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="{{ path('app_home') }}" class="nav-link px-2 text-white">Home</a></li>
+            <li><a href="{{ path('app_review') }}" class="nav-link px-2 text-white">Add Review</a></li>
+            <li><a href="{{ path('app_companies') }}" class="nav-link px-2 text-white" >Companies</a></li>
+        </ul>
+
+        <div class="text-end">
+            {% if not app.user %}
+                <a href="{{ path('app_login') }}" class="btn btn-outline-light me-2">Login</a>
+                <a href="{{ path('app_register') }}" class="btn btn-warning">Sign-up</a>
+            {% else %}
+                <a href="{{ path('app_logout') }}" class="btn btn-outline-light me-2">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

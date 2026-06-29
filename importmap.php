@@ -25,4 +25,27 @@ return [
     '@hotwired/turbo' => [
         'version' => '8.0.23',
     ],
+    'bootstrap' => [
+        'version' => '5.3.8',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'bootstrap/dist/css/bootstrap.min.css' => [
+        'version' => '5.3.8',
+        'type' => 'css',
+    ],
+    'jquery' => [
+        'version' => '4.0.0',
+    ],
+    'datatables.net-bs5' => [
+        'version' => '2.3.8',
+    ],
+    'datatables.net' => [
+        'version' => '2.3.8',
+    ],
+    'datatables.net-bs5/css/dataTables.bootstrap5.min.css' => [
+        'version' => '2.3.8',
+        'type' => 'css',
+    ],
 ];

@@ -1,0 +1,43 @@
+{% extends '/layouts/base.html.twig' %}
+
+{% block title %}Trustindex | Review - {{ review.companyName }}{% endblock %}
+
+{% block body %}
+    <div class="container py-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('app_home') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ review.companyName }}</li>
+            </ol>
+        </nav>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title">{{ review.companyName }}</h1>
+
+                <div class="mb-3">
+                    {% for i in 1..5 %}
+                        <i class="bi bi-star{% if i <= review.rating %}-fill{% endif %} text-warning fs-4"></i>
+                    {% endfor %}
+                    <span class="ms-2 text-muted">({{ review.rating }}/5)</span>
+                </div>
+
+                <p class="card-text">{{ review.reviewText|nl2br }}</p>
+
+                <ul class="list-unstyled text-muted">
+                    <li><strong>Author:</strong> {{ review.authorEmail }}</li>
+                    <li><strong>Submitted:</strong> {{ review.createdAt|date('F j, Y \a\t H:i') }}</li>
+                    {% if review.updatedAt and review.updatedAt != review.createdAt %}
+                        <li><strong>Last updated:</strong> {{ review.updatedAt|date('F j, Y \a\t H:i') }}</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <a href="{{ path('app_home') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back to reviews
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends '/layouts/base.html.twig' %}
+
+{% block title %}Page not found - Trustindex{% endblock %}
+
+{% block body %}
+    <div class="container py-5 text-center">
+        <h1 class="display-1">404</h1>
+        <p class="lead">The page you’re looking for doesn’t exist.</p>
+        <a href="{{ path('app_home') }}" class="btn btn-primary">Back to Home</a>
+    </div>
+{% endblock %}
