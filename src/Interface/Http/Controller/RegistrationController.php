@@ -3,8 +3,8 @@
 namespace App\Interface\Http\Controller;
 
 use App\Domain\User\Entity\User;
+use App\Infrastructure\Security\EmailVerifier;
 use App\Interface\Http\Form\RegistrationFormType;
-use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 // TODO [GENERATED] This controller was scaffolded by `make:registration-form`.
-// TODO [v2 DDD] Implement Domain-Driven Design
+// TODO [v3 DDD] Implement Domain-Driven Design
 class RegistrationController extends AbstractController
 {
     public function __construct(private EmailVerifier $emailVerifier)

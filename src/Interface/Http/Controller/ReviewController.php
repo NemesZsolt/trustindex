@@ -67,7 +67,7 @@ final class ReviewController extends AbstractController
                 ->last(HandledStamp::class)
                 ->getResult();
         } catch (HandlerFailedException $e) {
-            if ($e->getNestedExceptionOfClass(ReviewNotFoundException::class)) {
+            if ([] !== $e->getWrappedExceptions(ReviewNotFoundException::class)) {
                 throw $this->createNotFoundException('Review not found.', $e);
             }
 

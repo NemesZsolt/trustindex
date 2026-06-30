@@ -25,6 +25,17 @@ page aggregating review counts and average ratings.
 - AssetMapper for frontend assets
 - Docker (database service)
 
+## Architecture
+
+The codebase follows Domain-Driven Design with a four-layer split:
+
+``` bash
+src/
+├── Domain/ # Entities, domain events, repository interfaces — no framework dependencies
+├── Application/ # Commands, queries, and their handlers (CQRS)
+├── Infrastructure/ # Doctrine repositories, mailer adapters — implements Domain interfaces
+└── Interface/Http/ # Controllers, forms, DTOs — the only layer aware of HTTP
+```
 ## Prerequisites
 
 - PHP 8.2 or higher with common extensions (pdo_pgsql, intl, mbstring, etc.)
@@ -53,18 +64,23 @@ page aggregating review counts and average ratings.
    Make sure the PostgreSQL connection string matches your Docker setup
 
 
-4. **Start the database**
+4. **Install frontend assets**
+
+    ```bash 
+   php bin/console importmap:install
+
+5. **Start the database**
 
    ```bash
    docker-compose up -d
 
-5. **Create the database and run migrationse**
+6. **Create the database and run migrationse**
 
     ```bash
     php bin/console doctrine:database:create --if-not-exists
     php bin/console doctrine:migrations:migrate --no-interaction
 
-6. **Start the Symfony development server**
+7. **Start the Symfony development server**
 
     ```bash
     symfony server:start
