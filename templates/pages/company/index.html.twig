@@ -6,31 +6,37 @@
     <div class="container py-5">
         <h1 class="mb-4">Companies</h1>
 
-        <table class="table table-striped data-table" data-order-column="2" data-order-dir="desc">
-            <thead>
-            <tr>
-                <th>Company</th>
-                <th>Reviews</th>
-                <th>Average Rating</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for company in company_stats %}
+        <div
+            data-controller="datatable"
+            data-datatable-order-column-value="2"
+            data-datatable-order-dir-value="desc"
+        >
+            <table class="table table-striped" data-datatable-target="table">
+                <thead>
                 <tr>
-                    <td>
-                        {{ company.company_name }}
-                    </td>
-                    <td>{{ company.review_count }}</td>
-                    <td data-order="{{ company.avg_rating }}">
-                        {% set avg = company.avg_rating|round(1) %}
-                        {% for i in 1..5 %}
-                            <i class="bi bi-star{% if i <= avg %}-fill{% endif %} text-warning"></i>
-                        {% endfor %}
-                        <span class="ms-2 text-muted">{{ avg }}</span>
-                    </td>
+                    <th>Company</th>
+                    <th>Reviews</th>
+                    <th>Average Rating</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for company in company_stats %}
+                    <tr>
+                        <td>
+                            {{ company.companyName }}
+                        </td>
+                        <td>{{ company.reviewCount }}</td>
+                        <td data-order="{{ company.averageRating }}">
+                            {% set avg = company.averageRating|round(1) %}
+                            {% for i in 1..5 %}
+                                <i class="bi bi-star{% if i <= avg %}-fill{% endif %} text-warning"></i>
+                            {% endfor %}
+                            <span class="ms-2 text-muted">{{ avg }}</span>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

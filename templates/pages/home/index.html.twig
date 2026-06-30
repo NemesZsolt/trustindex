@@ -13,33 +13,37 @@
 
     <div class="container">
         <h2>Company reviews</h2>
-        <table class="table table-striped data-table">
-            <thead>
-            <tr>
-                <th>Company</th>
-                <th>Rating</th>
-                <th>Review</th>
-                <th>Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for review in reviews %}
+        <div
+            data-controller="datatable"
+        >
+            <table class="table table-striped" data-datatable-target="table">
+                <thead>
                 <tr>
-                    <td>
-                        <a href="{{ path('app_review_detail', {id: review.id}) }}" class="text-decoration-none">
-                            {{ review.companyName }}
-                        </a>
-                    </td>
-                    <td data-order="{{ review.rating }}">
-                        {% for i in 1..5 %}
-                            <i class="bi bi-star{% if i <= review.rating %}-fill{% endif %} text-warning"></i>
-                        {% endfor %}
-                    </td>
-                    <td>{{ review.reviewText|u.truncate(80, '...') }}</td>
-                    <td>{{ review.createdAt|date('Y-m-d H:i') }}</td>
+                    <th>Company</th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                    <th>Date</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for review in reviews %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('app_review_detail', {id: review.id}) }}" class="text-decoration-none">
+                                {{ review.companyName }}
+                            </a>
+                        </td>
+                        <td data-order="{{ review.rating }}">
+                            {% for i in 1..5 %}
+                                <i class="bi bi-star{% if i <= review.rating %}-fill{% endif %} text-warning"></i>
+                            {% endfor %}
+                        </td>
+                        <td>{{ review.reviewText|u.truncate(80, '...') }}</td>
+                        <td>{{ review.createdAt|date('Y-m-d H:i') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

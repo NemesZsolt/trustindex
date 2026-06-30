@@ -8,4 +8,13 @@
 #   bin/console debug:router
 
 controllers:
-    resource: routing.controllers
+    resource:
+        path: ../src/Interface/Http/Controller/
+        namespace: App\Interface\Http\Controller
+    type: attribute
+
+interface_controllers:
+    resource:
+        path: ../src/Interface/Http/Controller/
+        namespace: App\Interface\Http\Controller
+    type: attribute

@@ -37,7 +37,7 @@ page aggregating review counts and average ratings.
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/NemesZsolt/trustindex.git
    cd trustindex
 
 2. **Install PHP dependencies**
@@ -56,7 +56,7 @@ page aggregating review counts and average ratings.
 4. **Start the database**
 
    ```bash
-   cp .env.example .env
+   docker-compose up -d
 
 5. **Create the database and run migrationse**
 
