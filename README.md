@@ -50,19 +50,19 @@ src/
    ```bash
    git clone https://github.com/NemesZsolt/trustindex.git
    cd trustindex
-
-2. **Install PHP dependencies**
-
-   ```bash
-   composer install
-
-3. **Configure environment variables**
+   
+2. **Configure environment variables**
 
    ```bash
    cp .env.example .env
    ```
    Make sure the PostgreSQL connection string matches your Docker setup
 
+
+3. **Install PHP dependencies**
+
+   ```bash
+   composer install
 
 4. **Install frontend assets**
 
